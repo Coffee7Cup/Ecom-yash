@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      
+</head>
+<body class="bg-gray-200 font-sans text-gray-700">
+
+    <div id="navbar"></div>
+    <div class="container mx-auto p-8 flex">
+        <div class="max-w-md w-full mx-auto">
+            <h1 class="text-4xl text-center mb-12 font-extrabold">Sign Up</h1>
+
+            <div class="bg-white rounded-lg overflow-hidden shadow-2xl">
+                <div class="p-8">
+                    <form method="POST" class="" action="#" onsubmit="return false;">
+                        <div class="mb-5">
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-600">First Name  <span class="text-red-500">*</span> </label>
+
+                            <input type="text" name="first-name" class="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none">
+                        </div>
+
+                        <div class="mb-5">
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-600">Last Name <span class="text-red-500">*</span></label>
+
+                            <input type="text" name="last-name" class="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none">
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-600">Email <span class="text-red-500">*</span></label>
+
+                            <input type="text" name="email" class="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none">
+                        </div>
+                
+                        <div class="mb-5">
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-600">Password <span class="text-red-500">*</span></label>
+
+                            <input type="text" name="password" class="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none">
+                        </div>
+
+                        <button class="w-full p-3 mt-4 bg-indigo-600 text-white rounded shadow">Sign Up</button>
+                    </form>
+                </div>
+                
+                <div class="flex justify-between p-8 text-sm border-t border-gray-300 bg-gray-100">
+                    <a href="sign-up.html" class="font-medium text-indigo-500">Already have a Account</a>
+
+                    <a href="#" class="text-gray-600">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+          
+<div id="footer"></div>
+
+
+
+
+
+<script>
+  // Load navbar
+  fetch('navbar.html')
+      .then(response => response.text())
+      .then(html => {
+          document.getElementById("navbar").innerHTML = html;
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+
+  // Load footer
+  fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+          document.getElementById("footer").innerHTML = html;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+</script>
+
+</body>
+</html>
