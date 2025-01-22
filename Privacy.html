@@ -108,48 +108,30 @@ When you visit any of our websites or applications, visit our stores, engage wit
     
 
 
-   <!-- Footer -->
-   <footer class="bg-gray-900 text-white py-10" >
-    <div class="container mx-auto px-6 lg:px-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-        
-        <!-- About Us -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4 border-b-2 border-blue-500 inline-block pb-1">About Us</h3>
-          <p class="text-gray-400">
-            We offer curated products and services to enhance your experience. Your satisfaction is our priority.
-          </p>
-        </div>
   
-        <!-- Quick Links -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4 border-b-2 border-blue-500 inline-block pb-1">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Home</a></li>
-            <li><a href="AboutUs.html" class="text-gray-400 hover:text-blue-400 transition">About</a></li>
-            <li><a href="Privacy.html" class="text-gray-400 hover:text-blue-400 transition">Privacy Policy</a></li>
-            <li><a href="Terms&conditions.html" class="text-gray-400 hover:text-blue-400 transition">Terms & Conditions</a></li>
-            <li><a href="Return&Refund.html" class="text-gray-400 hover:text-blue-400 transition">Return & Refund</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Services</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Contact</a></li>
-          </ul>
-        </div>
-  
-        <!-- Contact -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4 border-b-2 border-blue-500 inline-block pb-1">Contact</h3>
-          <p class="text-gray-400">Email: <a href="mailto:contact@example.com" class="hover:text-blue-400">contact@example.com</a></p>
-          <p class="text-gray-400">Phone: <a href="tel:+1234567890" class="hover:text-blue-400">+1 234 567 890</a></p>
-        </div>
-  
-      </div>
-    </div>
-  
-    <!-- Footer Bottom -->
-    <div class="mt-10 border-t border-gray-700 text-center pt-5">
-      <p class="text-gray-400 text-sm">© 2025 Your Company. All rights reserved.</p>
-    </div>
-  </footer>
+<div id="footer"></div>
+
+
+
+
+
+<script>
+  // Load navbar
+  fetch('navbar.html')
+      .then(response => response.text())
+      .then(html => {
+          document.getElementById("navbar").innerHTML = html;
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+
+  // Load footer
+  fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+          document.getElementById("footer").innerHTML = html;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+</script>
 
   </body>
 </html>
