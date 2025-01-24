@@ -1,28 +1,38 @@
-<section class="w-full px-8 text-gray-700 bg-white">
-    <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
-        <div class="relative flex flex-col md:flex-row">
-            <a href="./index.html" class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
-                <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">LOGO<span class="text-indigo-600">.</span></span>
-            </a>
-            <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-                <a href="./index.html" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</a>
-                <a href="./about.html" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">About</a>
-                <a href="./single-product.html" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Product</a>
-                <a href="wishlist.html" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Wishlist</a>
-                <a href="payment-gateway.html" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Payment-gateway</a>
-                <a href="#" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Contact</a>
-            
-            </nav>
-        </div>
-  
-        <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
-            <a href="sign-in.html" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
-                Sign in
-            </a>
-            <a href="sign-up.html" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
-                Sign up
-            </a>
-        </div>
+<nav class="bg-gray-900 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <div class="flex items-center">
+        <span class="text-xl font-bold">My Logo</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-4 items-center">
+        <a href="index.html" class="hover:text-gray-400">Home</a>
+        <a href="#" class="hover:text-gray-400">Shop</a>
+        <a href="about.html" class="hover:text-gray-400">About</a>
+        <a href="contact.html" class="hover:text-gray-400">Contact</a>
+        <a href="sign-in.html"><button class="bg-blue-500 px-4 py-2 rounded-md">Login</button></a>
+        <a href="sign-up.html"><button class="bg-green-500 px-4 py-2 rounded-md">Sign Up</button></a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
-  </section>
-  
+  </div>
+
+  <!-- Mobile Menu (Initially Hidden) -->
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col bg-gray-800 p-4">
+    <a href="index.html" class="py-2 hover:text-gray-400">Home</a>
+    <a href="#" class="py-2 hover:text-gray-400">Shop</a>
+    <a href="about.html" class="py-2 hover:text-gray-400">About</a>
+    <a href="contact.html" class="py-2 hover:text-gray-400">Contact</a>
+     <a href="sign-in.html"><button class="bg-blue-500 px-4 py-2 rounded-md my-2">Login</button></a>
+     <a href="sign-up.html"><button class="bg-green-500 px-4 py-2 rounded-md">Sign Up</button></a>
+  </div>
+</nav>

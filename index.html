@@ -9,8 +9,8 @@
   </head>
   <body>
     <!-- NavBar -->
-   <div id="navbar"></div>
-
+   <!-- <div id="navbar"></div> -->
+  <div id="navbar"></div>
 
     <!-- Main contant -->
     <!-- New Arrivals -->
@@ -128,27 +128,32 @@
 
 
 
-
-
 <script>
-  // Load navbar
-  fetch('navbar.html')
-      .then(response => response.text())
-      .then(html => {
-          document.getElementById("navbar").innerHTML = html;
-      })
-      .catch(error => console.error('Error loading navbar:', error));
+   // Load navbar.html into the page
+   fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    })
+    .then(() => {
+      // Ensure the script is loaded after navbar elements are inserted
+      const script = document.createElement('script');
+      script.src = 'navbar.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading navbar:', error));
 
-  // Load footer
-  fetch('footer.html')
-      .then(response => response.text())
-      .then(html => {
-          document.getElementById("footer").innerHTML = html;
-      })
-      .catch(error => console.error('Error loading footer:', error));
+
+    fetch('footer.html')
+          .then(response => response.text())
+          .then(html => {
+              document.getElementById("footer").innerHTML = html;
+          })
+          .catch(error => console.error('Error loading footer:', error));
 </script>
 
 
-
+<script src="navbar.js"></script>
   </body>
 </html>
