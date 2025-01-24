@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-bg {
+            background-image: url('assets/contactimg.jpg'); /* Corrected path to the image */
+            background-size: cover;
+            background-position: center;
+            height: 40vh; /* Reduced height */
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+     <div id="navbar"></div>
+    <section class="hero-bg relative flex items-center justify-center">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- Overlay -->
+        <div class="relative z-10 text-center text-white px-4 py-12">
+            <h1 class="text-4xl font-bold mb-2">Contact Us</h1>
+            <p class="max-w-lg mx-auto text-sm sm:text-base">
+                We'd love to hear from you! Whether you have a question, feedback, or need assistance, reach out to us.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <main class="container mx-auto px-4 py-12 w-[80%]">
+        <section class="bg-white  shadow-black rounded-lg p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">
+                Get in Touch
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Contact Form -->
+                <div class="border border-gray-300 rounded-lg p-6 shadow-md bg-gray-50">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium">Name</label>
+                            <input type="text" id="name" name="name" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium">Email</label>
+                            <input type="email" id="email" name="email" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300" placeholder="Your Email" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white font-semibold py-2 rounded-md shadow-md hover:bg-gray-800">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="border border-gray-300 rounded-lg p-6 shadow-md bg-gray-50">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Contact Details</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <strong>Email:</strong>
+                            <a href="mailto:support@elitestyle.com" class="text-blue-500 hover:underline">support@elitestyle.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone:</strong> +1 234 567 8901
+                        </li>
+                        <li>
+                            <strong>Office Address:</strong> 
+                            <p>123 Elite Ave, Suite 456, YourCity, YourCountry</p>
+                        </li>
+                        <li>
+                            <strong>Working Hours:</strong>
+                            <p>Monday to Friday: 9:00 AM - 6:00 PM</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-center mt-12">
+                Follow us on social media:
+                <a href="#" class="text-blue-500 hover:underline">Facebook</a>, 
+                <a href="#" class="text-blue-500 hover:underline">Twitter</a>, 
+                <a href="#" class="text-blue-500 hover:underline">Instagram</a>.
+            </p>
+        </section>
+    </main>
+
+    
+<div id="footer"></div>
+
+
+
+<script>
+   // Load navbar.html into the page
+   fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    })
+    .then(() => {
+      // Ensure the script is loaded after navbar elements are inserted
+      const script = document.createElement('script');
+      script.src = 'navbar.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading navbar:', error));
+
+
+    fetch('footer.html')
+          .then(response => response.text())
+          .then(html => {
+              document.getElementById("footer").innerHTML = html;
+          })
+          .catch(error => console.error('Error loading footer:', error));
+</script>
+
+
+<script src="navbar.js"></script>
+</body>
+</html>
