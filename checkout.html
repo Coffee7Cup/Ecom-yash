@@ -5,167 +5,329 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function handlePaymentMethodChange(selectedMethod) {
-            document.getElementById("card-details").classList.add("hidden");
-            document.getElementById("net-banking-details").classList.add("hidden");
-            document.getElementById("upi-details").classList.add("hidden");
-            document.getElementById("wallet-details").classList.add("hidden");
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-            if (selectedMethod === "credit-card" || selectedMethod === "debit-card") {
-                document.getElementById("card-details").classList.remove("hidden");
-            } else if (selectedMethod === "net-banking") {
-                document.getElementById("net-banking-details").classList.remove("hidden");
-            } else if (selectedMethod === "upi") {
-                document.getElementById("upi-details").classList.remove("hidden");
-            } else if (selectedMethod === "wallet") {
-                document.getElementById("wallet-details").classList.remove("hidden");
-            }
+    <style>
+
+        .section-empty{
+            width: 80%;
+            margin: 30px auto;
         }
-    </script>
+        .billing_text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  margin: 0;
+  font-size: 16px;
+  color: #737373;
+  
+}
+
+.yourCart_div {
+}
+
+.cart_img_content {
+}
+
+.food_img_price_des {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.food_img_price_des .cart_food_img {
+  width: 85px;
+  height: 51px;
+  overflow: hidden;
+  border: 1px solid #d4d4d491;
+  padding: 4px;
+  
+}
+
+.food_img_price_des .cart_food_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.food_img_price_des .food_dec_flex {
+  margin-left: 2rem;
+}
+
+.food_img_price_des .food_dec_flex p {
+  color: #737373;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.food_img_price_des .food_dec_flex p:last-child {
+  color: red;
+}
+
+.yourCart_div {
+  border: 1px solid #d4d4d491;
+  padding: 19px;
+  margin-top: 2rem;
+}
+
+.cart_total {
+}
+
+.cart_total .price_total {
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+.cart_total .price_total p {
+  color: #737373;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.total_btn_cart {
+  width: 100%;
+  background: #ac1734 !important;
+  border-color: #ac1734 !important;
+  padding: 9px 19px !important;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-weight: 500;
+  border-style: unset;
+  font-family: "Montserrat", sans-serif;
+}
+
+.total_btn_cart:hover {
+  background-color: #ac1734 !important;
+  border-color: #ac1734 !important;
+}
+
+.cart_total {
+  border: 1px solid #d4d4d491;
+  padding: 8px 19px;
+  border-top: 0;
+}
+
+.input_form .input_box_cart input,
+.input_form .input_box_cart textarea {
+  width: 100%;
+  border: 1px solid #d4d4d491;
+  outline: none;
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 13px;
+  resize: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input_form .input_box_cart {
+  margin-bottom: 15px;
+}
+
+.mb_23px {
+  margin-bottom: 20px !important;
+}
+
+.text_center_button {
+  justify-content: center;
+}
+
+.input_form {
+  margin-top: 2rem;
+}
+
+.footer-parallax-container {
+  margin-bottom: 0 !important;
+  box-shadow: none;
+  min-height: auto !important;
+}
+
+.footer-parallax {
+  height: auto !important;
+  position: relative !important;
+  background-color: #f5f5f5 !important;
+  z-index: 1;
+}
+
+.section-bg-image_full_height {
+  background-image: url(../images/hd-8.png);
+  background-attachment: fixed;
+}
+
+.mt-12px {
+  margin-top: 12px !important;
+}
+
+.bg_green {
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
+}
+
+.bg_green:hover {
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
+}
+
+button{
+  outline:none !important;
+}
+    </style>
 </head>
 <body class=" text-gray-800 font-sans">
     <div id="navbar"></div>
-    <h1 style="text-align: center;" class="text-3xl font-bold text-gray-700 m-6">Shopping Cart</h1>
-    <div class="container mx-auto p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Cart Section -->
-        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <h2 class="text-3xl font-bold text-gray-700 mb-6">🛒 Cart Items</h2>
-            <div class="space-y-6">
-                <!-- Item 1 -->
-                <div class="flex items-center justify-between border-b pb-4">
-                    <div class="flex items-center space-x-4">
-                        <img src="assets/img1.jpeg" alt="Product 1" class="w-16 h-16 rounded-md shadow">
-                        <div>
-                            <h4 class="font-bold text-lg">Product 1</h4>
-                            <p class="text-sm text-gray-500">Description for product 1</p>
-                        </div>
-                    </div>
-                    <p class="font-bold text-xl text-gray-700">$50.00</p>
+    
+  <div class="section-empty">
+    <div class="container content">
+      <div class="row">
+        <div class="col-md-7">
+          <p class="billing_text">Billing Address</p>
+          <div class="input_form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Full Name">
                 </div>
-                <!-- Item 2 -->
-                <div class="flex items-center justify-between border-b pb-4">
-                    <div class="flex items-center space-x-4">
-                        <img src="assets/img2.jpeg" alt="Product 2" class="w-16 h-16 rounded-md shadow">
-                        <div>
-                            <h4 class="font-bold text-lg">Product 2</h4>
-                            <p class="text-sm text-gray-500">Description for product 2</p>
-                        </div>
-                    </div>
-                    <p class="font-bold text-xl text-gray-700">$75.00</p>
+              </div>
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Mobile Number">
                 </div>
-                <!-- Item 3 -->
-                <div class="flex items-center justify-between border-b pb-4">
-                    <div class="flex items-center space-x-4">
-                        <img src="assets/bag1.jpeg" alt="Sandqvist Bag" class="w-16 h-16 rounded-md shadow">
-                        <div>
-                            <h4 class="font-bold text-lg">Sandqvist Bag</h4>
-                            <p class="text-sm text-gray-500">Size: 35L</p>
-                        </div>
-                    </div>
-                    <p class="font-bold text-xl text-gray-700">$110.99</p>
-                </div>
-                <!-- Total -->
-                <div class="flex justify-between items-center font-semibold text-xl text-gray-800 pt-4">
-                    <p>Total:</p>
-                    <p>$335.98</p>
-                </div>
+              </div>
             </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Email Address">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Mobile Number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input_box_cart">
+                  <textarea rows="4" placeholder="Full Address"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="billing_text mb_23px">Delievery Info</p>
+          <div class="input_form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Full Name">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Mobile Number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Email Address">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" placeholder="Mobile Number">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input_box_cart">
+                  <textarea rows="4" placeholder="Full Address"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="total_btn_cart bg_green text_center_button">
+            Place Order
+          </button>
+          
         </div>
-
-        <!-- Payment Info Section -->
-        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <h2 class="text-3xl font-bold text-gray-700 mb-6">💳 Payment Info</h2>
-            <form class="space-y-6">
-                <!-- Payment Method -->
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Payment Method</label>
-                    <div class="flex flex-col space-y-2">
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="payment" class="form-radio text-blue-500" value="credit-card" onclick="handlePaymentMethodChange('credit-card')" checked>
-                            <span>Credit Card</span>
-                        </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="payment" class="form-radio text-blue-500" value="debit-card" onclick="handlePaymentMethodChange('debit-card')">
-                            <span>Debit Card</span>
-                        </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="payment" class="form-radio text-blue-500" value="net-banking" onclick="handlePaymentMethodChange('net-banking')">
-                            <span>Net Banking</span>
-                        </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="payment" class="form-radio text-blue-500" value="upi" onclick="handlePaymentMethodChange('upi')">
-                            <span>UPI</span>
-                        </label>
-                        <label class="flex items-center space-x-2">
-                            <input type="radio" name="payment" class="form-radio text-blue-500" value="wallet" onclick="handlePaymentMethodChange('wallet')">
-                            <span>Wallets</span>
-                        </label>
-                    </div>
+        <div class="col-md-5">
+          <p class="billing_text">Your Cart</p>
+          <div class="yourCart_div">
+            <div class="cart_img_content">
+              <!-- start -->
+              <div class="food_img_price_des">
+                <div class="cart_food_img">
+                  <img src="./assets/images/man-collection-1.jpg">
                 </div>
-
-                <!-- Payment Details -->
-                <div id="card-details" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-semibold mb-1">Name on Card</label>
-                        <input type="text" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 placeholder-gray-400" placeholder="John Doe">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold mb-1">Card Number</label>
-                        <input type="text" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 placeholder-gray-400" placeholder="1234 5678 9012 3456">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-semibold mb-1">Expiration Date</label>
-                            <input type="text" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 placeholder-gray-400" placeholder="MM/YY">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-1">CVV</label>
-                            <input type="text" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 placeholder-gray-400" placeholder="123">
-                        </div>
-                    </div>
+                <div class="food_dec_flex">
+                  <p>paneer curry cut skinless(500)</p>
+                  <p>100/-</p>
                 </div>
-
-                <!-- Net Banking -->
-                <div id="net-banking-details" class="space-y-4 hidden">
-                    <label class="block text-sm font-semibold mb-1">Select Bank</label>
-                    <select class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300">
-                        <option>HDFC Bank</option>
-                        <option>ICICI Bank</option>
-                        <option>State Bank of India</option>
-                        <option>Axis Bank</option>
-                    </select>
+              </div>
+              <!-- end -->
+              <!-- start -->
+              <div class="food_img_price_des">
+                <div class="cart_food_img">
+                  <img src="./assets/images/man-collection-2.jpg">
                 </div>
-
-                <!-- UPI -->
-                <div id="upi-details" class="space-y-4 hidden">
-                    <label class="block text-sm font-semibold mb-1">Enter UPI ID</label>
-                    <input type="text" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300 placeholder-gray-400" placeholder="example@upi">
+                <div class="food_dec_flex">
+                  <p>paneer curry cut skinless(500)</p>
+                  <p>100/-</p>
                 </div>
-
-                <!-- Wallet -->
-                <div id="wallet-details" class="space-y-4 hidden">
-                    <label class="block text-sm font-semibold mb-1">Select Wallet</label>
-                    <select class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-300">
-                        <option>Paytm</option>
-                        <option>Google Pay</option>
-                        <option>PhonePe</option>
-                        <option>Amazon Pay</option>
-                    </select>
+              </div>
+              <!-- end -->
+              <!-- start -->
+              <div class="food_img_price_des">
+                <div class="cart_food_img">
+                  <img src="./assets/images/man-collection-6.jpg">
                 </div>
-
-                <!-- Checkout Button -->
-                <button
-    type="submit"
-    class="w-full py-3 bg-black text-white font-bold rounded-lg shadow-lg hover:bg-gray-900 transition-all transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-500"
->
-    Check Out
-</button>
-
-
-            </form>
+                <div class="food_dec_flex">
+                  <p>paneer curry cut skinless(500)</p>
+                  <p>100/-</p>
+                </div>
+              </div>
+              <!-- end -->
+              <!-- start -->
+              <div class="food_img_price_des">
+                <div class="cart_food_img">
+                  <img src="./assets/images/man-collection-3.webp">
+                </div>
+                <div class="food_dec_flex">
+                  <p>paneer curry cut skinless(500)</p>
+                  <p>100/-</p>
+                </div>
+              </div>
+              <!-- end -->
+            </div>
+          </div>
+          <div class="cart_total">
+            <div class="price_total">
+              <p>Total</p>
+              <p>500</p>
+            </div>
+            <div class="price_total">
+              <p>Shipping</p>
+              <p>free</p>
+            </div>
+          </div>
+          <button type="button" class="total_btn_cart">
+            <span>Total</span>
+            <span>500</span>
+          </button>
         </div>
+      </div>
     </div>
+  </div>
+
        
 <div id="footer"></div>
 
