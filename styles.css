@@ -294,6 +294,8 @@ p {
  
 }
 
+
+
 ._img2{
   position: absolute;
   border-radius: 2em;
@@ -339,7 +341,13 @@ p {
 @keyframes wiggle {
   0% { transform: translateX(0) rotateX(10deg); }
 }
-
+@media (max-width:450px) {
+  ._img1, ._img2, ._img3, ._img4{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 50px;
+}
 .grid_wrapper{
   width: 100%;
   display: flex;
