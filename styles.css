@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
 
 html, body {
@@ -10,7 +11,7 @@ html, body {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "futura std",  helvetica,  arial,  "sans-serif", "th-icons";
 }
 
 /* Navbar */
@@ -278,7 +279,7 @@ p {
 
 ._div2{
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 100%;
 }
 
@@ -290,6 +291,7 @@ p {
   right: 100px;
   transform: translateX(0) rotateX(10deg);
   z-index: 30;
+ 
 }
 
 ._img2{
@@ -327,6 +329,7 @@ p {
   z-index: 10;
   filter: grayscale(1);
   animation: wiggle .6s ease-out 0s 1 forwards;
+  
 }
 
 ._img2:hover, ._img3:hover, ._img4:hover {
@@ -342,15 +345,22 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .list img {
   width: 100%;
   margin-bottom: 1em;
   max-width: 400px;
+  
   object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+ 
 }
+.list img:hover{
+  transform: scale(1.05);
 
+}
 .list {
   margin-top: 1em;
   column-count: 4;

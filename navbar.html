@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<nav class="bg-gray-900 text-white">
+<nav class="bg-gray-900 text-white relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
       <div class="flex items-center">
@@ -11,14 +10,21 @@
       <div class="hidden md:flex space-x-4 items-center">
         <a href="index.html" class="hover:text-gray-400">Home</a>
         <a href="./products.html" class="hover:text-gray-400">Products</a>
-        <a href="./cart.html" class="hover:text-gray-400">Cart</a>
-        <a href="./categories.html" class="hover:text-gray-400">Category</a>
-        <a href="about.html" class="hover:text-gray-400">About</a>
-        <a href="contact.html" class="hover:text-gray-400">Contact</a>
-        <a href="./wishlist.html" class="hover:text-gray-400"  style="color: red;"><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i></a>
-        <a href="sign-in.html"><button class="bg-blue-500 px-4 py-2 rounded-md">Login</button></a>
-        <a href="sign-up.html"><button class="bg-green-500 px-4 py-2 rounded-md">Sign Up</button></a>
-      </div>
+        <div class="relative group">
+          <a href="#" class="hover:text-gray-400">Category</i></a>
+          <div class="absolute hidden group-hover:block bg-gray-800 text-white mt-2 rounded-md shadow-lg z-50">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Women</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Men</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Shoes</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Watches</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Accessiries</a>
+          </div>
+        </div>
+       <a href="contact.html" class="hover:text-gray-400">Contact</a>
+       <a href="./cart.html" class="hover:text-gray-400"> <i class="fa fa-shopping-cart"></i></a>
+       
+         <a href="sign-in.html"><button class="bg-blue-500 px-4 py-2 rounded-md">Login</button></a>
+     </div>
 
       <!-- Mobile Menu Button -->
       <div class="md:hidden">
@@ -32,14 +38,23 @@
   </div>
 
   <!-- Mobile Menu (Initially Hidden) -->
-  <div id="mobile-menu" class="hidden md:hidden flex flex-col bg-gray-800 p-4">
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col bg-gray-800 p-4 z-50 relative">
     <a href="index.html" class="hover:text-gray-400">Home</a>
     <a href="./products.html" class="hover:text-gray-400">Products</a>
     <a href="./cart.html" class="hover:text-gray-400">Cart</a>
-    <a href="./categories.html" class="hover:text-gray-400">Category</a>
+    <div class="relative group">
+      <a href="#" class="hover:text-gray-400">Category</a>
+      <div class="absolute hidden group-hover:block bg-gray-800 text-white mt-2 rounded-md shadow-lg z-50 left-16">
+        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Women</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Men</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Shoes</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Watches</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Accessiries</a>
+      </div>
+    </div>
     <a href="about.html" class="hover:text-gray-400">About</a>
     <a href="contact.html" class="hover:text-gray-400">Contact</a>
-    <a href="./wishlist.html" class="hover:text-gray-400"  style="color: red;"><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i></a>
+    <a href="./wishlist.html" class="hover:text-gray-400" style="color: red;"><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i></a>
     <a href="sign-in.html"><button class="bg-blue-500 px-4 py-2 rounded-md">Login</button></a>
     <a href="sign-up.html"><button class="bg-green-500 px-4 py-2 mt-3 rounded-md">Sign Up</button></a>
   </div>
