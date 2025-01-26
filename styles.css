@@ -389,8 +389,8 @@ p {
 }
 
 .mens_collection_button:hover {
-  background-color: black;
-  color: white;
+  background-color: rgb(196, 25, 25);
+
   transition: all 0.3s ease-in;
 }
 
