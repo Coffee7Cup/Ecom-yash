@@ -1,3 +1,9 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -166,6 +172,7 @@ body {
 
 /* Hero Section */
 ._body {
+  padding: 1.5em;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -228,6 +235,7 @@ body {
   color: #555!important;
   margin-left: 355px;
   animation: slidein 7s forwards;
+  font-size: 0.7em;
 }
 
 @keyframes showup {
@@ -277,61 +285,72 @@ p {
   100% { opacity: 1; transform: translateX(0); }
 }
 
+
 ._div2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 
-._img1 {
-  position: absolute;
-  border-radius: 2em;
-  border: black solid 1px;
-  bottom: 100px;
-  right: 100px;
-  transform: translateX(0) rotateX(10deg);
-  z-index: 30;
- 
-}
-
-
-
-._img2{
-  position: absolute;
-  border-radius: 2em;
-  border: black solid 1px;
-  bottom: 100px;
-  right: 100px;
-  transform: translateX(10%) rotateZ(20deg);
-  z-index: 20;
+._img{
   animation: wiggle .6s ease-out 0s 1 forwards;
   filter: grayscale(1);
+  position: absolute;
+  border-radius: 2em;
+  border: black solid 1px;
+  right: 100px;
+  bottom: 1em;
+}
+
+._img2{
+  transform: translateX(10%) rotateZ(20deg);
+  z-index: 20;
 }
 
 ._img3{
-  position: absolute;
-  border-radius: 2em;
-  border: black solid 1px;
-  bottom: 100px;
-  right: 100px;
   transform: translateX(-70%) rotateZ(-25deg);
   z-index: 10;
-  filter: grayscale(1);
-  animation: wiggle .6s ease-out 0s 1 forwards;
-  filter: grayscale(1);
 }
 
 ._img4{
-  position: absolute;
-  border-radius: 2em;
-  border: black solid 1px;
-  bottom: 100px;
-  right: 100px;
   transform: translateX(-30%) rotateZ(0deg) translateY(-10%);
   z-index: 10;
-  filter: grayscale(1);
-  animation: wiggle .6s ease-out 0s 1 forwards;
-  
+}
+
+@media(max-width: 1020px){
+  ._body{
+    flex-direction: column;
+  }
+
+  ._div2{
+    margin: auto;
+    bottom: 3em;
+    /* left: 5em; */
+  }
+
+  ._img{
+    scale: 0.8;
+    top: 100px;
+    bottom: auto; /* Add this line to override the bottom property */
+    left: 40%;
+  }
+
+  ._img2{
+    /* transform: translateX(30%) rotateZ(10deg) translateY(-40%); */
+    transform: rotateZ(10deg) translateX(-25%) translateY(30%);
+  }
+  ._img3{
+    /* transform: translateY(-70%) translateX(30%) rotateZ(-10deg); */
+    transform: rotateZ(-5deg) translateX(-70%);
+  }
+
+
+  ._img4{
+    display: none !important;
+  }
 }
 
 ._img2:hover, ._img3:hover, ._img4:hover {
@@ -340,13 +359,6 @@ p {
 
 @keyframes wiggle {
   0% { transform: translateX(0) rotateX(10deg); }
-}
-@media (max-width:450px) {
-  ._img1, ._img2, ._img3, ._img4{
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 50px;
 }
 .grid_wrapper{
   width: 100%;
@@ -502,7 +514,3 @@ p {
       width: 100%;
   }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
